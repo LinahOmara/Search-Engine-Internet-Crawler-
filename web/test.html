@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>AJAX Search</title>
+<style type="text/css">
+div#result {
+display: none;
+border:2px solid blue;
+}
+</style>
+<script language="javascript">
+var req;
+function searchText() {
+var search = document.getElementById("search").value;
+if(window.xmlHttpRequest){
+req = new xmlHttpRequest();
+}
+else if(window.ActiveXObject){
+req = new ActiveXObject("Microsoft.XMLHttp");
+}
+var url = "/Project/Main?search="+search;
+req.open("get",url,true);
+req.onreadystatechange = callback;
+req.send(null);
+}
+function callback() {
+if( req.readyState==4 ){
+var result = document.getElementById('result');
+result.innerHTML = '';
+var respText = req.responseText;
+alert(respText);
+if((respText.length)!=0){
+document.getElementById('result').style.display =
+'block';
+var str = req.responseText.split("\n");
+var items;
+for(i=0; i < str.length - 1; i++) {
+items = '<div onclick="setText(this.innerHTML);" ';
+items += '>'+ str[i] + '</div>';
+result.innerHTML += items;
+}
+}
+else
+{
+document.getElementById('result').style.display ='none';
+}
+}
+}
+function focusIn(){
+document.getElementById("search").focus( );
+}
+function setText(value) {
+document.getElementById('search').value = value;
+document.getElementById('result').style.display = 'none';
+document.getElementById('result').innerHTML = '';
+}
+</script>
+</head>
+<body onload="focusIn();">
+<h2>Ajax Search Example</h2>
+<form>
+<b>Enter Search Keyword</b>
+<table border = "0"> 
+<tr>
+<td><input type="text" id="search"  name="word" onkeyup="searchText()"
+/></td>
+</tr>
+<tr>
+<td><div id="result"></div></td>
+</tr>
+</table>
+<input type="submit" id="search" value="find"/>
+</form>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <style> 
+        input[type=text] {
+            width: 20%;
+            border: 1px solid #cc0000;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: white;
+            padding: 12px 20px 12px 40px;
+            -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+        }
+        input[type=text]:focus {
+            width: 50%;
+        }
+html, body, h1, h2, p, a, header, footer, .container, .is-footer  {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font: normal 22px/26px "Open Sans Condensed", sans-serif;
+  background: #454d62 url("lib.jpg") no-repeat center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.semi-transparent-button {
+  display: block;
+  padding: 8px;
+  width: 200px;
+  height: 60px;
+  background: #fff; /* fallback color for old browsers */
+  background: rgba(255, 255, 255, 0);
+  border-radius: 8px;
+  border: 2px solid #fff; 
+  font-size: 30px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+.semi-transparent-button:hover,
+.semi-transparent-button:focus,
+.semi-transparent-button:active {
+  background: 	#ce3232;
+  border: 2px #fff; 
+}
+</style>
+    </head>
+    <body >
+	<center>
+        <form action="Main" method="POST">
+            <br /> <br/> <br/> <br/> <br /> <br/> <br/> <br/> 
+            <input type="text" name="word" placeholder="Search.." > <br /> <br/> <br/> <br/>
+            <button class="semi-transparent-button" type="submit" value="Submit" >  Search </button>
+        </form>
+		</center>
+    </body>
+</html>
+
